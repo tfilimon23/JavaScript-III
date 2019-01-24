@@ -69,6 +69,43 @@ Humanoid.prototype.greet = function(){
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
 
+/*Villain Constructor Function*/
+
+function Villain(vProperties) {
+  Humanoid.call(this, vProperties);
+  this.target = vProperties.target;
+} 
+
+Villain.prototype = Object.create(Humanoid.prototype);
+Villain.prototype.vkill = function(){
+ if (target.healthPoints > 0) {
+   target.healthPoints += -1;
+  return `${this.name} has struck ${this.target}`
+ } else if (target.healthPoints === 0) {
+   return `${this.name} has defeated ${this.target}`
+ }
+}
+
+
+
+
+/*Hero Constructor Function */
+
+function SuperHero(sProperties) {
+  Humanoid.call(this, sProperties);
+}
+
+SuperHero.prototype = Object.create(Humanoid.prototype);
+SuperHero.prototype.skill = function(){
+ if (target.healthPoints > 0) {
+   target.healthPoints += -1;
+  return `${this.name} has struck ${this.target}`
+ } else if (target.healthPoints === 0) {
+   return `${this.name} has defeated ${this.target}`
+ }
+}
+
+
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 
